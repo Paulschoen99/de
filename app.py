@@ -4,6 +4,31 @@ import requests
 import pandas as pd
 from PIL import Image
 from io import BytesIO
+import openai
+from packaging import version
+
+required_version = version.parse("1.1.1")
+current_version = version.parse(openai.__version__)
+
+if current_version < required_version:
+    raise ValueError(f"Error: OpenAI version {openai.__version__}"
+                     " is less than the required version 1.1.1")
+else:
+    print("OpenAI version is compatible.")
+
+# -- Now we can get to it
+from openai import OpenAI
+import openai
+from packaging import version
+
+required_version = version.parse("1.1.1")
+current_version = version.parse(openai.__version__)
+
+if current_version < required_version:
+    raise ValueError(f"Error: OpenAI version {openai.__version__}"
+                     " is less than the required version 1.1.1")
+else:
+    print("OpenAI version is compatible.")
 from openai import OpenAI
 import time
 from langchain_openai import ChatOpenAI
